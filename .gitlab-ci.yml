@@ -1,0 +1,27 @@
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+      when: never
+
+stages:
+  - build
+  - checkstyle
+  - tests
+
+build:
+  stage: build
+  image: openjdk:11
+  script:
+    - ./gradlew clean build
+
+checkstyle:
+  stage: checkstyle
+  image: openjdk:11
+  script:
+    - ./gradlew clean check
+
+tests:
+  stage: tests
+  image: openjdk:11
+  script:
+    - ./gradlew clean test
