@@ -1,7 +1,5 @@
 package com.aqa.course.data;
 
-import com.aqa.course.api.models.posts.Posts;
-
 public class Generator {
     RandomData randomData;
 
@@ -9,13 +7,6 @@ public class Generator {
         this.randomData = new RandomData();
     }
 
-    public Posts getPosts() {
-        return new Posts(
-                randomData.getTitle(),
-                randomData.getBody(),
-                randomData.getID()
-        );
-    }
 
     public TextBoxData getTextBoxData() {
         return new TextBoxData(
